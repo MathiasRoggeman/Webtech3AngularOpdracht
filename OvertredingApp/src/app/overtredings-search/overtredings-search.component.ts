@@ -11,18 +11,23 @@ export class OvertredingsSearchComponent implements OnInit {
 
   search: FormGroup;
   opnameplaats_straat: string;
-  resultOvertreding: Overtreding[] = [];
+  aantal_overtredingen_snelheid: string;
+  resultOvertreding1: Overtreding[] = [];
+  resultOvertreding2: Overtreding[] = [];
   allOvertredingen: Overtreding[] = [];
   constructor(private overtredingService: OvertredingService) { }
 
   ngOnInit() {
     this.search = new FormGroup({
-      opnameplaats_straat: new FormControl('')
+      opnameplaats_straat: new FormControl(''),
+      aantal_overtredingen_snelheid: new FormControl('')
     });
     this.overtredingService.getOvertredingen().subscribe(data => this.allOvertredingen = data);
   }
-  onSubmit() {
-    this.resultOvertreding = this.overtredingService.searchOvertredingByOpnameplaats_straat(this.search.value.opnameplaats_straat, this.allOvertredingen);
+  onSubmitSearch1() {
+    this.resultOvertreding1 = this.overtredingService.searchOvertredingByOpnameplaats_straat(this.search.value.opnameplaats_straat, this.allOvertredingen);
   }
-
+  onSubmitSearch2() {
+    this.resultOvertreding2 = this.overtredingService.searchOvertredingByAantal_overtredingen_snelheid(this.search.value.opnameplaats_straat, this.allOvertredingen);
+  }
 }

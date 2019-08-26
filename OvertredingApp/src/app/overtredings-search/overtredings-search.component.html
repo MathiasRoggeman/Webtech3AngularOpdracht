@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Search location</h1>
   <!-- Voor het aanroepen van de onSubmit methode uit de ts file-->
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmitSearch1()">
     <div class="form-group" [formGroup]="search">
       <label for="opnameplaats_straat">opnameplaats_straat:</label>
       <input type="text" formControlName="opnameplaats_straat" />
@@ -14,8 +14,27 @@
   <!--om het resultaat van answeer weer te geven-->
 
   <h2>zoekresultaat</h2>
-  <ul *ngFor="let overtreding of resultOvertreding">
-    overtreding: <li>{{overtreding.id}}</li>
+  <ul *ngFor="let overtreding of resultOvertreding1">
+    datum_vaststelling: <li>{{overtreding.datum_vaststelling}}</li>
+    opnameplaats_straat:<li>{{overtreding.opnameplaats_straat}}</li>
+    aantal_overtredingen_snelheid :<li>{{overtreding.aantal_overtredingen_snelheid}}</li>
+    aantal_overtredingen_roodlicht:<li>{{overtreding.aantal_overtredingen_roodlicht}}</li>
   </ul>
-  <label>opnameplaats_straat :&nbsp;</label>{{ result_opnameplaats_straat }}<br />
+
+  <form (ngSubmit)="onSubmitSearch2()">
+    <div class="form-group" [formGroup]="search">
+      <label for="aantal_overtredingen_snelheid">aantal_overtredingen_snelheid:</label>
+      <input type="text" formControlName="aantal_overtredingen_snelheid" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Zoek aantal_overtredingen_snelheid</button>
+  </form>
+  <br /><br />
+  <h2>zoekresultaat2</h2>
+  <ul *ngFor="let overtreding of resultOvertreding2">
+    datum_vaststelling: <li>{{overtreding.datum_vaststelling}}</li>
+    opnameplaats_straat:<li>{{overtreding.opnameplaats_straat}}</li>
+    aantal_overtredingen_snelheid :<li>{{overtreding.aantal_overtredingen_snelheid}}</li>
+    aantal_overtredingen_roodlicht:<li>{{overtreding.aantal_overtredingen_roodlicht}}</li>
+  </ul>
 </div>

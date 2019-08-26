@@ -26,19 +26,16 @@ export class OvertredingService {
 
     return someOvertreding;
   }
-  /*
-  searchOvertredingByAantal_overtredingen_snelheid(opnameplaats_straat: string): string {
-    let trainer: string = "";
-    if (localStorage.getItem(name) != null) {
-      trainer = localStorage.getItem(name);
-    } else {
-      const max: number = this.trainers.length - 1;
-      const min: number = 0;
-      const range: number = max - min + 1;
-      const rnd: number = Math.random() * range + min;
-      trainer = this.trainers[Math.floor(rnd)];
-      localStorage.setItem(name, trainer);
+
+  searchOvertredingByAantal_overtredingen_snelheid(aantal_overtredingen_snelheid: string, allOvertredingen: Overtreding[]): Overtreding[] {
+
+    const someOvertreding2: Overtreding[] = [];
+    for (const overtreding of allOvertredingen) {
+
+      if (overtreding.aantal_overtredingen_snelheid >= aantal_overtredingen_snelheid) {
+        someOvertreding2.push(overtreding);
+      }
     }
-    return trainer;
-  }*/
+    return someOvertreding2;
+  }
 }
