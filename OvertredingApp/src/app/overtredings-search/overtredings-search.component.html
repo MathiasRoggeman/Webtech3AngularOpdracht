@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Search location</h1>
+  <!-- Voor het aanroepen van de onSubmit methode uit de ts file-->
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group" [formGroup]="search">
+      <label for="opnameplaats_straat">opnameplaats_straat:</label>
+      <input type="text" formControlName="opnameplaats_straat" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Zoek opnameplaats_straat</button>
+  </form>
+  <br /><br />
+
+  <!--om het resultaat van answeer weer te geven-->
+
+  <h2>zoekresultaat</h2>
+  <ul *ngFor="let overtreding of resultOvertreding">
+    overtreding: <li>{{overtreding.id}}</li>
+  </ul>
+  <label>opnameplaats_straat :&nbsp;</label>{{ result_opnameplaats_straat }}<br />
+</div>
